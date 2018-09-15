@@ -1,9 +1,11 @@
 export class ToDo {
-	// Key: number;
 
-	constructor(item: string) {
-		this.Item = item;
-	}
+  constructor(item: string) {
+    this.title = item;
+  }
 
-	Item: string;
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }

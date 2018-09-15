@@ -1,21 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { ToDo } from "../to-do";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ToDo } from '../to-do';
 
 @Component({
-	selector: "ToDoItem", //default: app-to-do-item
-	templateUrl: "./to-do-item.component.html",
-	styleUrls: ["./to-do-item.component.css"]
+  selector: 'app-to-do-item',
+  templateUrl: './to-do-item.component.html',
+  styleUrls: ['./to-do-item.component.css']
 })
 export class ToDoItemComponent implements OnInit {
-	constructor() {}
+  constructor() { }
 
-	@Input() ToDo: ToDo = new ToDo("");
+  @Input() ToDo: ToDo = new ToDo('');
 
-	@Output() Deleted: EventEmitter<any> = new EventEmitter();
+  @Output() Deleted: EventEmitter<any> = new EventEmitter();
 
-	ngOnInit() {}
+  ngOnInit() { }
 
-	deleteItem() {
-		this.Deleted.emit();
-	}
+  deleteItem() {
+    this.Deleted.emit();
+  }
 }
