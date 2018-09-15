@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "angular.ng-template",
+    "formulahendry.auto-rename-tag",
+    "eg2.vscode-npm-script",
+    "eg2.tslint",
+    "robertohuertasm.vscode-icons",
+    "wix.vscode-import-cost",
+  ]
+}
