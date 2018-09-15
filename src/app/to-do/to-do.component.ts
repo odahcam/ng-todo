@@ -6,39 +6,41 @@ import { ToDo } from './to-do';
   templateUrl: './to-do.component.html',
   styleUrls: ['./to-do.component.css']
 })
-export class ToDoComponent implements OnInit {
-  constructor() { }
+export class ToDoComponent {
 
-  ToDos: ToDo[] = [new ToDo('clean the house'), new ToDo('buy milk')];
+  toDos: ToDo[] = [new ToDo('clean the house'), new ToDo('buy milk')];
 
-  Input = '';
+  input = '';
 
-  Submitted = false;
-
-  ngOnInit() { }
+  submitted = false;
 
   deleteItem(i: number) {
     // note delete doesn't work: https://stackoverflow.com/a/40462431/2653503
-    this.ToDos.splice(i, 1);
+    this.toDos.splice(i, 1);
   }
 
   addItem() {
-    this.Submitted = true;
-    if (this.Input === '') {
+
+    this.submitted = true;
+
+    if (this.input === '') {
       return;
     }
-    this.ToDos = this.ToDos.concat(new ToDo(this.Input));
+
+    this.toDos = this.toDos.concat(new ToDo(this.input));
+    this.input = '';
   }
 
-  ShouldBeHidden(
-    Valid: boolean,
-    Pristine: boolean,
-    Submitted: boolean
+  shouldBeHidden(
+    valid: boolean,
+    pristine: boolean,
+    submitted: boolean
   ): boolean {
-    if (Submitted) {
-      return Valid;
-    } else {
-      return Valid || Pristine;
+
+    if (submitted) {
+      return valid;
     }
+
+    return valid || pristine;
   }
 }
